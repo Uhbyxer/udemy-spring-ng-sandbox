@@ -2,10 +2,7 @@ package com.therealdanvega.tasks.controller;
 
 import com.therealdanvega.tasks.domain.Task;
 import com.therealdanvega.tasks.service.TaskService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -23,10 +20,8 @@ public class TaskController {
     }
 
     @PostMapping("/save")
-    public Task saveTask(Task task) {
+    public Task saveTask(@RequestBody Task task) {
         return taskService.save(task);
     }
-
-
 }
 
