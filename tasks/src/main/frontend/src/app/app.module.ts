@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//NgBootstrap module!
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -14,6 +16,7 @@ import { TasksListComponent } from './tasks/tasks-list/tasks-list.component';
     TasksListComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule
   ],
   providers: [],
