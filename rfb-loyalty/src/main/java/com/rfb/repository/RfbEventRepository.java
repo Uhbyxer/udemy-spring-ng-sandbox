@@ -15,5 +15,5 @@ import java.time.LocalDate;
 @Repository
 public interface RfbEventRepository extends JpaRepository<RfbEvent, Long> {
 
-    RfbEvent findByRfbLocationAndEventDate(RfbLocation location, LocalDate date);
+//    RfbEvent findByRfbLocationAndEventDate(RfbLocation location, LocalDate date);
 }

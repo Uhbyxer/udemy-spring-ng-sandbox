@@ -11,9 +11,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
-@Service
+//@Service
 public class RfbEventCodeService {
     private final Logger log = LoggerFactory.getLogger(RfbEventCodeService.class);
 
@@ -32,13 +33,15 @@ public class RfbEventCodeService {
 
         log.debug("Generating Events");
 
-        List<RfbLocation> rfbLocations = rfbLocationRepository.findAllByRunDayOfWeek(LocalDate.now().getDayOfWeek().getValue());
+        List<RfbLocation> rfbLocations = Collections.emptyList();
+          //  rfbLocationRepository.findAllByRunDayOfWeek(LocalDate.now().getDayOfWeek().getValue());
 
         log.debug("Locations Found for Events: " + rfbLocations.size());
 
         rfbLocations.forEach(location -> {
             log.debug("Checking Events for location: " + location.getId() );
-            RfbEvent existingEvent = rfbEventRepository.findByRfbLocationAndEventDate(location, LocalDate.now());
+            RfbEvent existingEvent = rfbEventRepository.getOne(1L);
+                //findByRfbLocationAndEventDate(location, LocalDate.now());
 
             if(existingEvent == null) {
                 log.debug("Event Not Found, Creating Event");
