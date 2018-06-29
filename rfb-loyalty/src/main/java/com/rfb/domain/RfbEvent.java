@@ -37,10 +37,6 @@ public class RfbEvent implements Serializable {
     @JsonIgnoreProperties("rfbEvents")
     private RfbLocation rfbLocation;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private RfbLocation homeLocation;
-
     @OneToMany(mappedBy = "rfbEvent")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<RfbEventAttendance> rfbEventAttendances = new HashSet<>();
@@ -91,19 +87,6 @@ public class RfbEvent implements Serializable {
 
     public void setRfbLocation(RfbLocation rfbLocation) {
         this.rfbLocation = rfbLocation;
-    }
-
-    public RfbLocation getHomeLocation() {
-        return homeLocation;
-    }
-
-    public RfbEvent homeLocation(RfbLocation rfbLocation) {
-        this.homeLocation = rfbLocation;
-        return this;
-    }
-
-    public void setHomeLocation(RfbLocation rfbLocation) {
-        this.homeLocation = rfbLocation;
     }
 
     public Set<RfbEventAttendance> getRfbEventAttendances() {

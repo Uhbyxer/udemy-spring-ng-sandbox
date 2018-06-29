@@ -19,12 +19,6 @@
                         <a [routerLink]="['/rfb-location', rfbEvent.rfbLocationId, 'view']">{{rfbEvent.rfbLocationId}}</a>
                     </div>
                 </dd>
-                <dt><span>Home Location</span></dt>
-                <dd>
-                    <div *ngIf="rfbEvent.homeLocationId">
-                        <a [routerLink]="['/rfb-location', rfbEvent.homeLocationId, 'view']">{{rfbEvent.homeLocationId}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

@@ -4,13 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <!--
-        Added the constraints for entity RfbEvent.
+        Added the constraints for entity RfbUser.
     -->
-    <changeSet id="20180628104216-2" author="jhipster">
+    <changeSet id="20180628104218-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="rfb_location_id"
-                                 baseTableName="rfb_event"
-                                 constraintName="fk_rfb_event_rfb_location_id"
+        <addForeignKeyConstraint baseColumnNames="home_location_id"
+                                 baseTableName="rfb_user"
+                                 constraintName="fk_rfb_user_home_location_id"
                                  referencedColumnNames="id"
                                  referencedTableName="rfb_location"/>
 

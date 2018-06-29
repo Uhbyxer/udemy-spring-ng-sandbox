@@ -18,8 +18,6 @@ export class RfbEventUpdateComponent implements OnInit {
     isSaving: boolean;
 
     rfblocations: IRfbLocation[];
-
-    homelocations: IRfbLocation[];
     eventDateDp: any;
 
     constructor(
@@ -37,21 +35,6 @@ export class RfbEventUpdateComponent implements OnInit {
         this.rfbLocationService.query().subscribe(
             (res: HttpResponse<IRfbLocation[]>) => {
                 this.rfblocations = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.rfbLocationService.query({ filter: 'rfbevent-is-null' }).subscribe(
-            (res: HttpResponse<IRfbLocation[]>) => {
-                if (!this.rfbEvent.homeLocationId) {
-                    this.homelocations = res.body;
-                } else {
-                    this.rfbLocationService.find(this.rfbEvent.homeLocationId).subscribe(
-                        (subRes: HttpResponse<IRfbLocation>) => {
-                            this.homelocations = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

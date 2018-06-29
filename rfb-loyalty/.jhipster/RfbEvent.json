@@ -18,14 +18,6 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "homeLocation",
-            "otherEntityName": "rfbLocation",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "rfbEvent"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "rfbEventAttendance",
             "otherEntityName": "rfbEventAttendance",

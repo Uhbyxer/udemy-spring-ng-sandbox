@@ -12,11 +12,9 @@ import org.mapstruct.*;
 public interface RfbEventMapper extends EntityMapper<RfbEventDTO, RfbEvent> {
 
     @Mapping(source = "rfbLocation.id", target = "rfbLocationId")
-    @Mapping(source = "homeLocation.id", target = "homeLocationId")
     RfbEventDTO toDto(RfbEvent rfbEvent);
 
     @Mapping(source = "rfbLocationId", target = "rfbLocation")
-    @Mapping(source = "homeLocationId", target = "homeLocation")
     @Mapping(target = "rfbEventAttendances", ignore = true)
     RfbEvent toEntity(RfbEventDTO rfbEventDTO);
 
