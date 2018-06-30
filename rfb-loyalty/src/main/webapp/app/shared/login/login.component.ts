@@ -71,7 +71,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
                     this.router.navigate([redirect]);
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 // let errorMessage = JSON.parse(error._body).message;
 
                 // console.log("error: "+ error);
